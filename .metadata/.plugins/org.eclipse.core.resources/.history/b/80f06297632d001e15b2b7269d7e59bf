@@ -1,0 +1,35 @@
+package com.day12;
+class PolyNode<T extends Comparable<T>>{
+	private T data;
+	private PolyNode<T> next;
+	public T getData() {
+		return data;
+	}
+	public void setData(T data) {
+		this.data = data;
+	}
+	public PolyNode<T> getNext() {
+		return next;
+	}
+	public void setNext(PolyNode<T> next) {
+		this.next = next;
+	}
+	public PolyNode(T data, PolyNode<T> next) {
+		super();
+		this.data = data;
+		this.next = next;
+	}
+	@Override
+	public String toString() {
+		return "PolyNode [data=" + data + "]";
+	}
+	
+}
+public class PolynomialAdditionAndMultiplication {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,48 @@
+package com.neebalgurukul.dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.neebalgurukul.model.Login;
+
+import java.sql.ResultSet;
+
+public class LoginDao {
+	Connection conn =null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	DataSource ds = new DataSource();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public  Login getLoginDetails(Connection con) throws SQLException {
+		String query = "select username, password from login";
+		conn=ds.getConnection();
+		Login loginObj = new Login();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			if(rs!=null) {
+				while(rs.next()) { //goes i=0 to n for ur query
+					loginObj.setUname(rs.getString("username")); //gets ith record at column username in sql query output
+					loginObj.setPswd(rs.getString("password"));
+					
+					System.out.println("username: "+loginObj.getUname()+" password: "+loginObj.getPswd());
+				
+				}
+			}
+			
+		
+	}
+		catch (SQLException e) {
+			System.out.println("SQLException in LoginDAO: "+e.getMessage());
+		}
+		
+		return loginObj
+
+}
+}

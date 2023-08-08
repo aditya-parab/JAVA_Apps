@@ -1,0 +1,83 @@
+package com.day16;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class DFS {
+	
+	public static ArrayList<ArrayList<Integer>> convertToAdjList(int[][] matrix) {
+		
+		ArrayList<ArrayList<Integer>> adjList = new ArrayList<ArrayList<Integer>>();
+		
+		for(int i=0;i<matrix.length;i++) {
+			ArrayList<Integer> row = new ArrayList<Integer>();
+			
+			for(int j=0;j<matrix[i].length;j++) {
+				if(matrix[i][j]==1) {
+					row.add(j);
+				}
+			}
+			adjList.add(row);
+		}
+		
+		return adjList;
+		
+		
+	}
+	
+	public static ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adjList){
+		ArrayList<Integer> dfs = new ArrayList<Integer>();
+		
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		boolean [] visited = new boolean[adjList.size()];
+		
+		stack.push(0); //u are storing indexes in stack not the whole list of neighbors
+		visited[0] = true;
+		
+		 while (!stack.isEmpty()) {
+		        int node = stack.pop();
+		        
+		        if (!visited[node]) {
+		            visited[node] = true;
+		            dfs.add(node);
+		            
+		            for (int neighbor : adjList.get(node)) {
+		                if (!visited[neighbor]) {
+		                    stack.push(neighbor);
+		                }
+		            }
+		        }
+		 }
+		
+		return dfs;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int [][] adj = 
+			{   {0,1,0,1,0,0,0},
+				{1,0,1,0,0,0,1},
+				{0,1,0,0,0,1,1},
+				{0,1,0,0,0,1,1},
+				{1,0,0,0,1,0,1},
+				{0,0,0,1,0,1,0},
+				{0,0,1,0,1,0,1},
+				{0,1,1,1,0,1,0}  };
+		
+		ArrayList<ArrayList<Integer>> adjList = convertToAdjList(adj);
+		
+		System.out.println(dfs(adjList));
+		ArrayList<Integer> ans = dfs(adjList);
+		
+		for(int i: ans) {
+			System.out.print((char)(i+65)+" ");
+		}
+		
+		
+
+	}
+
+}

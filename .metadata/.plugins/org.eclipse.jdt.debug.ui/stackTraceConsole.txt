@@ -1,0 +1,12 @@
+public int getPlayerNumber: takes no parameters and returns player number corresponding
+to log
+public String getCompleteSets: Takes no parameters and returns sets completed by the
+player
+
+public string getIncompleteSets:Takes no parameters and returns sets not completed by the
+player
+public int getPiecesBuilt: takes no parameters and returns pieces built by the player
+public void setCompleteSets(String completeSets): Updates completedSets field with input
+parameter
+public void setIncompletesets(String incompleteSets): Updates incompletesets field with
+input parameter

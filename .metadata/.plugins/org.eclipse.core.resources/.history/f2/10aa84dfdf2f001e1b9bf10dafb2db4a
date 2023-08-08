@@ -1,0 +1,87 @@
+package day15;
+
+import java.util.Stack;
+//import day15.precedence;
+
+class Expression{
+	String exp;
+	
+	public Expression(String exp) {
+		// TODO Auto-generated constructor stub
+		this.exp=exp;
+	}
+	
+	String convertPostFix() {
+		String postfix = "";
+		
+		Stack<Character> stk = new Stack<Character>();
+		
+		for(int i =0;i<exp.length()-1;i++) {
+			if(stk.isEmpty() || exp.charAt(i)=='(' || precedence(exp.charAt(i))>precedence(stk.peek())) {
+				stk.push(exp.charAt(i));
+			}
+			
+			if(exp.charAt(i)==')'){
+				while( !stk.isEmpty() && stk.peek()!='(' )
+					postfix+=stk.pop();
+				if(!stk.isEmpty())
+					stk.pop(); // get rid of ( character
+			}
+			
+			if(precedence(exp.charAt(i)) <= precedence(stk.peek())) {
+				while(!stk.isEmpty() && (precedence(exp.charAt(i))> precedence(stk.peek()))) {
+					postfix+=stk.pop();
+				}
+				stk.push(exp.charAt(i));
+				
+			}
+		}
+		
+		while(!stk.isEmpty()) {
+			postfix+=stk.pop();
+		}
+		return postfix;
+	}
+	
+	
+	
+	
+
+	private int precedence(char op) {
+		int val=0;
+		switch (op) {
+		case '/': {
+			val= 10;
+			break;
+			
+		}
+		case '*':{
+			val=9;
+			break;
+		}
+		case '+':{
+			val=8;
+			break;
+		}
+		case '-':{
+			val=7;
+			break;
+		}
+
+		}
+		return val;
+	}
+}
+
+
+
+public class InfixToPostfixOrPrefix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Expression post = new Expression("a+(b*c-d/e)/(f*g)");
+		System.out.println(post.convertPostFix());
+
+	}
+
+}

@@ -1,0 +1,40 @@
+package com.neebalgurukul;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import java.util.Calendar;
+
+import com.neebalgurukul.dao.LoginDao;
+import com.neebalgurukul.model.Login;
+
+
+public class LoginTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		LocalDate currentDate = LocalDate.now();
+		
+		LoginDao dao = new LoginDao();
+		List<Login> userList = new ArrayList<Login>();
+		try {
+			userList = dao.getLoginDetails();
+			for(Login obj : userList) {
+				System.out.println(obj.getUname()+" , "+obj.getPswd());
+			}
+			Login obj2 = dao.getLoginPassword("Adi");
+			System.out.println( obj2.getUname()+ ", " + obj2.getPswd());
+			
+			
+			dao.insertRecord(303,"ADP", "abcdef",Date.from(), true)
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

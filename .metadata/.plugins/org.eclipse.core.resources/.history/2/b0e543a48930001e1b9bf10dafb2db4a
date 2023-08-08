@@ -1,0 +1,19 @@
+package com.day16;
+
+
+class Student{
+	private String name;
+	private int rollno;
+	 private int math;
+	 private int phy;
+	 private int chem;
+}
+
+public class StudentMarks {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

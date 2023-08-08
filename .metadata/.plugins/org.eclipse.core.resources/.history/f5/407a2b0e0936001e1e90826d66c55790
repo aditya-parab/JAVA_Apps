@@ -1,0 +1,63 @@
+package com.neebalgurukul.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import com.neebalgurukul.model.Student;
+
+public class StudentDao {
+	
+	Connection conn =null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	DataSource ds = new DataSource();
+	
+	
+	public List<Student> getStudentDetails() throws SQLException {
+		List<Student> studentsList = new ArrayList<Student>();
+		String query = "select name,email,course,age from students";
+		
+		Connection conn=ds.getConnection();
+		
+		try {	
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			if(rs!=null) {
+				while(rs.next()) { //goes i=0 to n for ur query
+					Student studObj = new Student();
+					studObj.setName(rs.getString("name")); //gets ith record at column username in sql query output
+					studObj.setEmail(rs.getString("email"));
+					studObj.setCourse(rs.getString("course"));
+					studObj.setAge(Integer.parseInt(rs.getString("age")));
+					
+					
+					studentsList.add(studObj);
+				}
+			}
+			
+		} catch (SQLException e) {
+			throw new SQLException();
+		}
+		
+		finally {
+			conn.close();
+		}
+		
+		return studentsList;
+	}
+	
+	
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

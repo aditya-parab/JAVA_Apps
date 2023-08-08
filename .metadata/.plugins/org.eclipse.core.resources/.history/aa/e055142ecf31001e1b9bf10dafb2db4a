@@ -1,0 +1,90 @@
+package com.day17;
+
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
+class Edge implements Comparable<Edge> {
+    int node;
+    int weight;
+
+    public Edge(int node, int weight) {
+        this.node = node;
+        this.weight = weight;
+    }
+
+    @Override
+    public int compareTo(Edge other) {
+        return Integer.compare(this.weight, other.weight);
+    }
+}
+
+public class Prims {
+
+    public static ArrayList<ArrayList<Edge>> convertToAdjList(int[][] matrix) {
+
+        ArrayList<ArrayList<Edge>> adjList = new ArrayList<>();
+
+        for (int i = 0; i < matrix.length; i++) {
+            ArrayList<Edge> row = new ArrayList<>();
+
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] != 0) {
+                    row.add(new Edge(j, matrix[i][j]));
+                }
+            }
+            adjList.add(row);
+        }
+
+        return adjList;
+    }
+
+    public static int primsMST(ArrayList<ArrayList<Edge>> adjList) {
+        int totalWeight = 0;
+        int n = adjList.size();
+        boolean[] visited = new boolean[n];
+        PriorityQueue<Edge> pq = new PriorityQueue<>();
+
+        // Start with node 0
+        pq.offer(new Edge(0, 0));
+
+        while (!pq.isEmpty()) {
+            Edge edge = pq.poll();
+            int node = edge.node;
+            int weight = edge.weight;
+
+            if (visited[node]) {
+                continue;
+            }
+
+            visited[node] = true;
+            totalWeight += weight;
+
+            // Add neighboring edges to the priority queue
+            for (Edge neighbor : adjList.get(node)) {
+                if (!visited[neighbor.node]) {
+                    pq.offer(neighbor);
+                }
+            }
+        }
+
+        return totalWeight;
+    }
+
+    public static void main(String[] args) {
+        int adj[][] = {
+            {0, 4, 0, 8, 0, 0, 0, 0},
+            {4, 0, 3, 0, 0, 0, 0, 0},
+            {0, 3, 0, 0, 0, 0, 2, 1},
+            {8, 0, 0, 0, 3, 0, 0, 0},
+            {0, 0, 0, 3, 0, 7, 0, 0},
+            {0, 0, 0, 4, 7, 0, 6, 0},
+            {0, 0, 2, 5, 0, 6, 0, 7},
+            {0, 0, 1, 0, 0, 2, 7, 0}
+        };
+
+        ArrayList<ArrayList<Edge>> adjList = convertToAdjList(adj);
+
+        int totalWeight = primsMST(adjList);
+        System.out.println("Total weight of MST: " + totalWeight);
+    }
+}

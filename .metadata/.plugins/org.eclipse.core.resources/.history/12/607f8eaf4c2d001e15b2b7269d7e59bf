@@ -1,0 +1,11 @@
+package com.day12;
+
+public class DoubleLinkedListDemo {
+	//display and delete
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

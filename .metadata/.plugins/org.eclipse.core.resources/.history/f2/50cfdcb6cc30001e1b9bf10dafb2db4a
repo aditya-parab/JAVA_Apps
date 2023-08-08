@@ -1,0 +1,15 @@
+package com.day16;
+
+import java.util.ArrayList;
+import java.util.Stack;
+
+public class stockSpan {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Stack<Integer>stack  = new Stack<>();
+        Stack<Integer> store = new Stack<>();
+       ArrayList<Integer> arr = new ArrayList<>();
+	}
+
+}

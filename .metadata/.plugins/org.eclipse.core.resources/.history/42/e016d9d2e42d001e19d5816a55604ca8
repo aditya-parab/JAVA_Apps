@@ -1,0 +1,19 @@
+package com.day13;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class StockGame {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(new File("TraderOneMoves.txt"));
+		
+		while(input.hasNextInt()) {
+			System.out.println(input.nextInt()+" ");
+		}
+		System.out.println();
+
+	}
+
+}

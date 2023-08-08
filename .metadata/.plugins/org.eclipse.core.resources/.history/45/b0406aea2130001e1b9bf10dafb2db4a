@@ -1,0 +1,32 @@
+package day15;
+
+import java.util.ArrayList;
+import java.util.Stack;
+
+public class Assignment_day15_5 {
+	
+	public static int[] asteroidCollision(int [] asteroids) {
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		for(int i=0;i<asteroids.length;i++) {
+			int asteroid = asteroids[i];
+			if(asteroid>0 || stack.isEmpty()) {
+				stack.push(asteroids[i])
+			}
+		}
+		
+		
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method 
+		int [] asteroids = {10,2,-5};
+		System.out.println(asteroidCollision());
+		
+		
+
+	}
+
+}

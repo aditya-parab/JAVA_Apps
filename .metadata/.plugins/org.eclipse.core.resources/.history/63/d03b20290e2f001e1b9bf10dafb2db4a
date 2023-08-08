@@ -1,0 +1,13 @@
+package com.day14;
+
+import java.io.FileInputStream;
+
+public class fileInputStream {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		FileInputStream file = new FileInputStream(System.in);
+
+	}
+
+}

@@ -1,0 +1,181 @@
+package com.day12;
+class PolyNode implements Comparable{
+	private int base;
+	private int exp;
+	private PolyNode next;
+	public int getBase() {
+		return base;
+	}
+	public int getExponent() {
+		return exp;
+	}
+	public void setBase(int base) {
+		this.base = base;
+	}
+	public void setExponent(int exp) {
+		this.exp = exp;
+	}
+	public PolyNode getNext() {
+		return next;
+	}
+	public void setNext(PolyNode next) {
+		this.next = next;
+	}
+	public PolyNode(int i,int j, PolyNode next) {
+		super();
+		this.base = i;
+		this.exp = j;
+		this.next = next;
+	}
+	@Override
+	public String toString() {
+		return ""+base+"^"+exp;
+	}
+	
+}
+
+
+class PolyLinkedList<T extends Comparable<T>>{
+	private PolyNode<T> first=null;
+	void add(T data) {
+		PolyNode<T> newnode=new PolyNode<T>(1,1,null);
+		if(first==null) {
+			first=newnode;
+		}
+		else
+		{
+			PolyNode<T> temp=first;
+			while(temp.getNext()!=null) {
+				temp=temp.getNext();
+			}
+			temp.setNext(newnode);
+		}
+	}
+	public String toString() {
+		String msg="[";
+		PolyNode<T> temp=first;
+		while(temp!=null) {
+		if(temp.getNext()!=null)
+		msg+=(temp.getData()+" ");
+		else {			//in case we are at the last index we don't append a space
+			msg+=(temp.getData()+"");
+		}
+		temp=temp.getNext();
+		}
+		msg+="]";
+		return msg;
+	}
+	
+	//counts the number of nodes
+	public int count() {
+		PolyNode<T> curr = first;
+		int i =0;
+		while(curr!=null) {
+			i++;
+			curr=curr.getNext();
+		}
+		return i;
+	}
+	
+	//finds the largest
+	public T max() {
+		PolyNode<T> curr = first;
+		T max = curr.getData();
+		while(curr!=null) {
+			if(max.compareTo(curr.getData())<0)
+				max=curr.getData();
+			curr=curr.getNext();
+		}
+		return max;
+	}
+
+	//inserts a node after the given node
+	public boolean insert(T data, T afterdata) {
+		PolyNode<T> curr=first;
+		PolyNode<T> newNode = new PolyNode(afterdata,null );
+		while(curr.getNext()!=null) {
+			if (curr.getData()==data) {
+				PolyNode<T> storeNext = curr.getNext();
+				
+				curr.setNext(newNode);
+				curr=curr.getNext();
+				curr.setNext(storeNext);
+				return true;
+			}
+			else {
+				curr=curr.getNext();	
+			}
+			
+		}
+		return false;
+		
+	}
+	
+	//delete the given data
+	public boolean delNode(T data) {
+		PolyNode<T> curr=first;
+		while(curr.getNext()!=null) {
+			while(curr.getNext().getData().compareTo(data)==0) {
+				curr.setNext(curr.getNext().getNext());
+			}
+			curr=curr.getNext();
+			
+		}
+		return true;
+		
+	}
+	
+	//reverse the list
+	void reverse() {
+		PolyNode<T> prev = null;
+		PolyNode<T> curr = first;
+		
+		while(curr!=null) {
+			PolyNode<T> nextNode = curr.getNext();
+			curr.setNext(prev);
+			prev = curr;
+			curr = nextNode;
+		}
+		first = prev;
+		
+		
+	}
+	
+
+	
+	//inserts the element at the given index
+	public boolean insertAt(T data, int index) {
+		PolyNode<T> newNode = new PolyNode<T>(data, null);
+		int i=0;
+		PolyNode<T> curr = first;
+		while(curr.getNext()!=null) {
+			if(i==0) {
+				newNode.setNext(first);
+				first=newNode;
+				return true;
+			}
+			
+			if(i==index) {
+			
+			PolyNode<T> nextNode = curr.getNext();
+			curr.setNext(newNode);
+			newNode.setNext(nextNode);
+			}
+			i++;
+			curr=curr.getNext();
+			
+		}
+		return true;
+		
+	}
+
+	
+}
+public class PolynomialAdditionAndMultiplication {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.neebalgurukul;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.neebalgurukul.dao.LoginDao;
+import com.neebalgurukul.model.Login;
+
+public class LoginTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		LoginDao dao = new LoginDao();
+		List<Login> userList = new ArrayList<Login>();
+		try {
+			userList = dao.getLoginDetails();
+			for(Login obj : userList) {
+				System.out.println(obj.getUname()+" , "+obj.getPswd());
+			}
+			
+			System.out.println( dao.getLoginPassword("Adi"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

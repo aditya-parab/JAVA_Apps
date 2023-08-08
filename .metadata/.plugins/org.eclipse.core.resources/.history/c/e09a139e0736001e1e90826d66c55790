@@ -1,0 +1,20 @@
+package test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+import com.neebalgurukul.dao.StudentDao;
+
+
+public class StudentTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		StudentDao dao = new StudentDao();
+		List<Student> studentsList = new ArrayList<Student>();
+
+	}
+
+}

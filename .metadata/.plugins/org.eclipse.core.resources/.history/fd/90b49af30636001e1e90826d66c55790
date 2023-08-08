@@ -1,0 +1,47 @@
+package com.neebalgurukul.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.neebalgurukul.model.Student;
+
+public class StudentDao {
+	
+	Connection conn =null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	DataSource ds = new DataSource();
+	
+	
+	public List<Student> getStudentDetails(String name) {
+		List<Student> studentsList = new ArrayList<Student>();
+		String query = "select name,email,course,age from students";
+		
+		conn = conn=ds.getConnection();
+		
+		try {
+			Statement stmt = conn.createStatement();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		
+		
+		return studentsList;
+	}
+	
+	
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

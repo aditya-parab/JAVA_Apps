@@ -1,0 +1,38 @@
+package day15;
+
+import java.util.Stack;
+import day15.precedence;
+
+class Expression{
+	String exp;
+	
+	public Expression(String exp) {
+		// TODO Auto-generated constructor stub
+		this.exp=exp;
+	}
+	
+	String convertPostFix() {
+		String postfix = "";
+		
+		Stack<Character> stk = new Stack<Character>();
+		
+		for(int i =0;i<exp.length()-1;i++) {
+			if(stk.isEmpty() || exp.charAt(i)==')' || precedence(exp.charAt(i))>precedence(stk.peek()))) {
+				
+			}
+		}
+		return postfix;
+	}
+}
+
+
+
+public class InfixToPostfixOrPrefix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Expression s = new Expression("");
+
+	}
+
+}

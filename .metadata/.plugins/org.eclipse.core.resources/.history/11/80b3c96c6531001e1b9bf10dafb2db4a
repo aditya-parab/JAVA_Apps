@@ -1,0 +1,58 @@
+package com.day16;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class BFS {
+	
+	public static ArrayList<ArrayList<Integer>> convertToAdjList(int[][] matrix) {
+		
+		ArrayList<ArrayList<Integer>> adjList = new ArrayList<ArrayList<Integer>>();
+		
+		for(int i=0;i<matrix.length;i++) {
+			ArrayList<Integer> row = new ArrayList<Integer>();
+			
+			for(int j=0;j<matrix[i].length;j++) {
+				if(matrix[i][j]==1) {
+					row.add(j);
+				}
+			}
+			adjList.add(row);
+		}
+		
+		return adjList;
+		
+		
+	}
+	
+	public static ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> adjList){
+		ArrayList<Integer> bfs = new ArrayList<Integer>();
+		
+		Queue<ArrayList<Integer>> q = new LinkedList<ArrayList<Integer>>();
+		
+		return bfs;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int [][] adj = 
+			{   {0,1,0,1,0,0,0},
+				{1,0,1,0,0,0,1},
+				{0,1,0,0,0,1,1},
+				{0,1,0,0,0,1,1},
+				{1,0,0,0,1,0,1},
+				{0,0,0,1,0,1,0},
+				{0,0,1,0,1,0,1},
+				{0,1,1,1,0,1,0}  };
+		
+		System.out.println(bfs());
+		
+		
+		
+		
+
+	}
+
+}

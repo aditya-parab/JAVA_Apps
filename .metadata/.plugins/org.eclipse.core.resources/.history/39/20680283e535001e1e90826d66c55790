@@ -1,0 +1,10 @@
+package com.neebalgurukul.dao;
+
+public class UserAlreadyExistsException extends Exception{
+	UserAlreadyExistsException(){};
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "User was not found...";
+	}
+}

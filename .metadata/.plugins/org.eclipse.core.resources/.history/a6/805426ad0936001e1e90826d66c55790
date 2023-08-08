@@ -1,0 +1,5 @@
+package com.neebalgurukul.exceptions;
+
+public class UserAlreadyExistsException {
+
+}

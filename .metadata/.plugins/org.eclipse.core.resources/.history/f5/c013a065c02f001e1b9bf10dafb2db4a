@@ -1,0 +1,31 @@
+package day15;
+
+import java.util.LinkedList;
+import com.day12.LinkedListDemo;
+class LinkedListStack{
+	
+
+	public LinkedListStack() <T>{
+		// TODO Auto-generated constructor stub
+		LinkedList<T> linkedList = new LinkedList<T>();
+		
+		
+	}
+	
+	int top=-1;
+	
+	void push() {
+		
+	}
+	
+}
+
+public class LinkedListStackDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedListStack<E>
+
+	}
+
+}

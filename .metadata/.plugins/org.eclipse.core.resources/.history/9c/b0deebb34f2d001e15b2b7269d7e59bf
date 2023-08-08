@@ -1,0 +1,86 @@
+package com.day12;
+
+class DNode<T extends Comparable<T>>{
+	private T data;
+	private DNode<T> next;
+	private DNode<T> prev;
+	public T getData() {
+		return data;
+	}
+	public void setData(T data) {
+		this.data = data;
+	}
+	public DNode<T> getNext() {
+		return next;
+	}
+	
+	public DNode<T> getPrevious() {
+		return prev;
+	}
+	public void setNext(DNode<T> next) {
+		this.next = next;
+	}
+	public void setPrevious(DNode<T> prev) {
+		this.prev = prev;
+	}
+	public DNode(T data, DNode<T> next) {
+		super();
+		this.data = data;
+		this.next = next;
+	}
+	@Override
+	public String toString() {
+		return "DNode [data=" + data + "]";
+	}
+	
+}
+
+class DoubleLinkedList<T extends Comparable<T>>{
+	private DNode<T> first=null;
+	
+	void add(T data) {
+		DNode<T> newnode=new DNode<T>(data,null);
+		if(first==null) {
+			first=newnode;
+		}
+		else
+		{
+			DNode<T> temp=first;
+			while(temp.getNext()!=null) {
+				temp=temp.getNext();
+			}
+			temp.setNext(newnode);
+			newnode.setPrevious(temp);
+		}
+	}
+	
+	//display
+	public String toString() {
+		DNode<T> curr = first;
+		while(curr!=null) {
+			
+			curr=curr.getNext();
+		} //reached the end
+		curr=curr.getPrevious();
+		while(curr!=)
+	}
+	
+	//delete the given data
+//	public boolean delNode(T data) {
+//		
+//		
+//	}
+	
+}
+
+
+
+public class DoubleLinkedListDemo {
+	//display and delete
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

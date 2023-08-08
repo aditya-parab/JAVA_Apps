@@ -1,0 +1,10 @@
+package com.neebalgurukul.dao;
+
+public class DataSource {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

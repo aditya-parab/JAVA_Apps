@@ -1,0 +1,5 @@
+package com.neebalgurukul.dao;
+
+public class UserAlreadyExistsException {
+
+}

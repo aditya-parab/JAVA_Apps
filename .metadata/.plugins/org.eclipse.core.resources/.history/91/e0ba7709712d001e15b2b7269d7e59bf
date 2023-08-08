@@ -1,0 +1,125 @@
+package com.day12;
+class PolyNode {
+	private int base;
+	private int exp;
+	private PolyNode next;
+	public int getBase() {
+		return base;
+	}
+	public int getExponent() {
+		return exp;
+	}
+	public void setBase(int base) {
+		this.base = base;
+	}
+	public void setExponent(int exp) {
+		this.exp = exp;
+	}
+	public PolyNode getNext() {
+		return next;
+	}
+	public void setNext(PolyNode next) {
+		this.next = next;
+	}
+	public PolyNode(int i,int j, PolyNode next) {
+		super();
+		this.base = i;
+		this.exp = j;
+		this.next = next;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+	
+}
+
+
+class PolyLinkedList<T extends Comparable<T>>{
+	private PolyNode first=null;
+	void addItem(int base,int exp) {
+		PolyNode newnode=new PolyNode(base,exp,null);
+		if(first==null) {
+			first=newnode;
+		}
+		else
+		{
+			PolyNode curr=first;
+			while(curr.getExponent()<newnode.getExponent()) {
+				newnode.setNext(curr.getNext());
+				curr.setNext(newnode);
+				curr=curr.getNext();
+			}
+			
+		}
+
+	}
+
+	//finds the largest
+	public T max() {
+		Node<T> curr = first;
+		T max = curr.getData();
+		while(curr!=null) {
+			if(max.compareTo(curr.getData())<0)
+				max=curr.getData();
+			curr=curr.getNext();
+		}
+		return max;
+	}
+	public String toString() {
+		String msg="";
+		PolyNode temp=first;
+		while(temp!=null) {
+		if(temp.getNext()!=null)
+		msg+=(temp.getBase()+"x^"+temp.getExponent()+" + ");
+		else {			//in case we are at the last index we don't append a space
+			msg+=(temp.getBase()+"x^"+temp.getExponent()+"");
+		}
+		temp=temp.getNext();
+		}
+		
+		return msg;
+	}
+	
+	//counts the number of nodes
+	public int count() {
+		PolyNode curr = first;
+		int i =0;
+		while(curr!=null) {
+			i++;
+			curr=curr.getNext();
+		}
+		return i;
+	}
+	
+	
+public PolyLinkedList addition(PolyLinkedList p1, PolyLinkedList p2) {
+	
+	
+}
+
+	
+}
+public class PolynomialAdditionAndMultiplication {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PolyLinkedList p1 = new PolyLinkedList();
+		PolyLinkedList p2 = new PolyLinkedList();
+		
+		p1.addItem(5,4);
+		p1.addItem(4,6);
+		p1.addItem(2,3);
+		p2.addItem(4,7);
+		
+		p2.addItem(4,7);
+		p2.addItem(2,2);
+		System.out.println("p1 = "+p1);
+		System.out.println("p2 = "+p2);
+		
+
+	}
+
+}

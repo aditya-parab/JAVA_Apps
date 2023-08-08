@@ -1,0 +1,38 @@
+package day15;
+
+import com.day12.*;
+
+
+
+import com.day12.LinkedListDemo;
+class LinkedListStack<T extends Comparable<T>>{
+	
+	Node<T> last;
+	void push(T data) {
+		Node<T> newNode = new Node(data, last)
+	}
+	
+	
+	
+	
+}
+
+public class LinkedListStackDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedListStack<Integer> s = new LinkedListStack<>();
+		int x=18;
+		
+		while(x!=0) {
+			s.push(x%2);
+			x=x/2;
+		}
+		
+		while(!s.isEmpty()) {
+			System.out.println(s.pop());
+		}
+
+	}
+
+}

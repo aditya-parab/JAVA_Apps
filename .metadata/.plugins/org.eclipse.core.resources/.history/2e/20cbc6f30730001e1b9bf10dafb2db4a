@@ -1,0 +1,29 @@
+package day15;
+
+import java.util.Stack;
+
+public class Assignment_day15_2 {
+
+	
+	
+	public static String convertPostfixToInfix(String s) {
+		Stack<String> stack = new Stack<>();
+		String ans="";
+		
+		for(int i=0;i<s.length();i++) {
+			if(Character.isLetter(s.charAt(i)))
+		}
+		
+		
+		return ans;
+		
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(convertPostfixToInfix("ab+cd/-"));
+
+	}
+
+}

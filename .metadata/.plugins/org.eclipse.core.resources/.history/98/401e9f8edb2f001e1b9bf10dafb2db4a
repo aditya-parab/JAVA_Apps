@@ -1,0 +1,34 @@
+package day15;
+
+public class precedence {
+
+	public precedence() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	int precedence(char op){
+		int val=0;
+		switch (op) {
+		case '/': {
+			val= 10;
+			break;
+			
+		}
+		case '*':{
+			val=9;
+			break;
+		}
+		case '+':{
+			val=8;
+			break;
+		}
+		case '-':{
+			val=7;
+			break;
+		}
+
+		}
+		return val;
+	}
+
+}

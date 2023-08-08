@@ -1,0 +1,26 @@
+package day15;
+
+import java.util.Stack;
+
+public class Assignment_day15_3 {
+	
+	public static int baseballGame(String [] s) {
+		int sum=0;
+		Stack<Integer> stack = new Stack<>();
+		for(int i=0;i<s.length;i++) {
+			char ch = s[i].charAt(0);
+			if(Character.isDigit(ch)) {
+				stack.push(Character.getNumericValue(ch));
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] s = new String[]{"5","-2","4","C","D","9","+","+"};
+		System.out.println(s[0].charAt(0));
+		System.out.println(baseballGame(s));
+
+	}
+
+}

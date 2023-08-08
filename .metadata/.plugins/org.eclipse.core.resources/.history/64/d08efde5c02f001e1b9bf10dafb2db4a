@@ -1,0 +1,44 @@
+package day15;
+
+import java.util.LinkedList;
+import com.day12.LinkedListDemo;
+class LinkedListStack<T>{
+	
+	LinkedList<T> linkedList;
+	int maxSize = 10;
+	int top=-1;
+	public LinkedListStack() {
+		// TODO Auto-generated constructor stub
+		linkedList = new LinkedList<T>();
+		
+		
+	}
+	
+	
+	
+	void push(T item) {
+		
+		if(top)
+		linkedList.add(item);
+		top+=1;
+	}
+	
+	void pop() {
+		
+	}
+	
+	boolean isEmpty() {
+		
+	}
+	
+}
+
+public class LinkedListStackDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedListStack<E>
+
+	}
+
+}

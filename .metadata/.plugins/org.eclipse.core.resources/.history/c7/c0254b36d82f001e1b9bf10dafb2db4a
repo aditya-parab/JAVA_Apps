@@ -1,0 +1,28 @@
+package day15;
+
+class Expression{
+	String exp;
+	
+	public Expression(String exp) {
+		// TODO Auto-generated constructor stub
+		this.exp=exp;
+	}
+	
+	String convertPostFix() {
+		String postfix = "";
+		
+		Stack
+		return postfix;
+	}
+}
+
+
+
+public class InfixToPostfix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.neebalgurukul.dao;
+
+public class UserNotFoundException {
+	
+	UserNotFoundException(){};
+@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return "User was not found...";
+}
+}
