@@ -189,12 +189,8 @@ public class StudentDao {
 			pstmt.executeUpdate();
 		} 	
 		
-		catch(UserNotFoundException e) {
-			throw new UserNotFoundException();
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-			throw new SQLException(e);
+		catch(Exception e) { //will catch and throw the general exception. the specific exception will be handled in studentTest. 
+			throw e;
 		}
 		finally {
 			conn.close();
