@@ -56,53 +56,53 @@ public class StudentDao {
 	}
 	
 	
-//	
-//	public Student getStudent(int id) throws Exception {
-//		String query = "select id,name,email,course,age from students where id = ?";
-//		Student studObj = new Student();
-//		
-//		conn = ds.getConnection();
-//		
-//		try {
-//			PreparedStatement pstmt = conn.prepareStatement(query);
-//			pstmt.setInt(1,id);
-//			ResultSet rs = pstmt.executeQuery();
-//			
-//			if(rs!=null) {
-//				while(rs.next()) { //goes i=0 to n for ur query
-//					studObj.setId(Integer.parseInt(rs.getString("id")));
-//					studObj.setName(rs.getString("name")); //gets ith record at column username in sql query output
-//					studObj.setEmail(rs.getString("email"));
-//					studObj.setCourse(rs.getString("course"));
-//					studObj.setAge(Integer.parseInt(rs.getString("age")));
-//					
-//					
-//				}
-//			}
-//			
-//			if(studObj.getEmail()==null) {
-//				System.out.println("hello");
-//				throw new UserNotFoundException();
-//			}
-//			
-//		} 
-//		
-//		
-//	
-//		
-//		
-//		catch (SQLException e) {
-//			throw new UserNotFoundException();
-//		}
-//		finally {
-//			conn.close();
-//		}
-//		
-//		return studObj;
-//		
-//	}
 	
+	public Student getStudent(int id) throws Exception {
+		String query = "select id,name,email,course,age from students where id = ?";
+		Student studObj = new Student();
+		
+		conn = ds.getConnection();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1,id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs!=null) {
+				while(rs.next()) { //goes i=0 to n for ur query
+					studObj.setId(Integer.parseInt(rs.getString("id")));
+					studObj.setName(rs.getString("name")); //gets ith record at column username in sql query output
+					studObj.setEmail(rs.getString("email"));
+					studObj.setCourse(rs.getString("course"));
+					studObj.setAge(Integer.parseInt(rs.getString("age")));
+					
+					
+				}
+			}
+			
+			if(studObj.getEmail()==null) {
+				System.out.println("hello");
+				throw new UserNotFoundException();
+			}
+			
+		} 
+		
+		
 	
+		
+		
+		catch (SQLException e) {
+			throw new UserNotFoundException();
+		}
+		finally {
+			conn.close();
+		}
+		
+		return studObj;
+		
+	}
+	
+	//function overloading
 	public Student getStudent(String email) throws Exception {
 		String query = "select id,name,email,course,age from students where email = ?";
 		Student studObj = new Student();
@@ -174,18 +174,18 @@ public class StudentDao {
 		return true;
 	}
 	
-	public  boolean deleteRecordHard(String email) throws Exception{
+	public  boolean deleteRecordHard(int id) throws Exception{
 		String query = "delete from students where id = ?";
 		conn=ds.getConnection();
 		
 		try {
 			//check if username exists
 			StudentDao dao = new StudentDao();
-			Student check = dao.getStudent(email); 
+			Student check = dao.getStudent(id); 
 			
 			PreparedStatement pstmt = conn.prepareStatement(query);
 
-			pstmt.setInt(1, check.getId());
+			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 		} 	
 		
@@ -202,13 +202,13 @@ public class StudentDao {
 		return true;
 	}
 	
-	public boolean updateCourse(String email, String newCourse) throws Exception {
+	public boolean updateCourse(int id, String newCourse) throws Exception {
 		conn = ds.getConnection();
 		
 		try {
 			//check if username exists
 			StudentDao dao = new StudentDao();
-			Student check = dao.getStudent(email); 
+			Student check = dao.getStudent(id); 
 			
 			
 			String query = "update students set course = ? where id = ?";
@@ -217,7 +217,7 @@ public class StudentDao {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 
 			pstmt.setString(1, newCourse);
-			pstmt.setInt(2, check.getId());
+			pstmt.setInt(2, id);
 			pstmt.executeUpdate();
 			
 		} 

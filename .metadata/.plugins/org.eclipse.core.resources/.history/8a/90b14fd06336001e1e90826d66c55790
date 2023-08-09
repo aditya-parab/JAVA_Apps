@@ -202,13 +202,13 @@ public class StudentDao {
 		return true;
 	}
 	
-	public boolean updateCourse(String email, String newCourse) throws Exception {
+	public boolean updateCourse(int id, String newCourse) throws Exception {
 		conn = ds.getConnection();
 		
 		try {
 			//check if username exists
 			StudentDao dao = new StudentDao();
-			Student check = dao.getStudent(email); 
+			Student check = dao.getStudent(id); 
 			
 			
 			String query = "update students set course = ? where id = ?";
@@ -217,7 +217,7 @@ public class StudentDao {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 
 			pstmt.setString(1, newCourse);
-			pstmt.setInt(2, check.getId());
+			pstmt.setInt(2, id);
 			pstmt.executeUpdate();
 			
 		} 

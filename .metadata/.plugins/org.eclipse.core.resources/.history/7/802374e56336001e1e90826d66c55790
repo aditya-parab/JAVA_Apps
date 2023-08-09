@@ -30,7 +30,7 @@ public class StudentTest {
 //			System.out.println(obj2);
 			
 //			System.out.println(dao.insertRecord("aditya","aditya@gmail.com", "history", 90));
-System.out.println(dao.updateCourse("CCC@gmail.com", "superpowers2"));
+System.out.println(dao.updateCourse(7, "superpowers"));
 		}
 		
 		catch(UserAlreadyExistsException e) {
