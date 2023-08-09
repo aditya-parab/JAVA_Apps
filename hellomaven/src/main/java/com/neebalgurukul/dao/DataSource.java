@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DataSource {
 	private static Connection conn=null;
-	private String dbName = "company";
+	private String dbName = "school";
 	private String username = "root";
 	private String password = "Aditya@123#";
 	
