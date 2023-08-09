@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Integer.MAX_VALUE"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="compliance"/>
 			<item value="Integer.MAX_VALUE"/>
 			<item value="Listing songs by"/>
 			<item value="welcome"/>

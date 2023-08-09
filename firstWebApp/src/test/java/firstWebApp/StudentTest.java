@@ -1,50 +1,51 @@
 package firstWebApp;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import com.neebalgurukul.model.Student;
-import com.neebalgurukal.exceptions.UserAlreadyExistsException;
 import com.neebalgurukul.dao.StudentDao;
-import com.neebalgurukul.exceptions.UserNotFoundException;
-
+import com.neebalgurukul.model.Student;
+import com.neebalgurukul.service.LoginService;
 
 public class StudentTest {
 
-	
-		public static void main(String[] args) throws Exception{
-			// TODO Auto-generated method stub
-			
-			StudentDao dao = new StudentDao();
-			List<Student> studentsList = new ArrayList<Student>();
-			
-			try {
-				
-//				studentsList =  dao.getStudentDetails();
-//				for(Student obj : studentsList) {
-//					System.out.println(obj);
-//				}
-				
-//				Student obj2 = dao.getStudent(1);
-//				System.out.println(obj2);
-				
-//				System.out.println(dao.insertRecord("aditya","aditya@gmail.com", "history", 90));
-	System.out.println(dao.updateCourse("CCC@gmail.com", "superpowers3"));
-			}
-			
-			catch(UserAlreadyExistsException e) {
-				System.out.println(e);
-			}
-			catch(UserNotFoundException e) {
-				System.out.println(e);
-			}
-			catch (SQLException e) {
-				System.out.println("SQL Exception: "+e.getMessage());
-				e.printStackTrace();
-			}
+    public static void main(String[] args) {
+	// TODO Auto-generated method stub
+	StudentDao dao = new StudentDao();
+	Student obj = new Student();
+	List<Student> studentList = new ArrayList<>();
+	LoginService service = new LoginService();
 
-		}
+	try {
+	    // to read the table
+		if(service.isValidUser("Adi", "pw12"))
+			System.out.println("Valid");
+		else {
+				System.out.println("invalid");
+			}
+		/*
+	    studentList = dao.getStudentDetails();
+	    for (Student s : studentList) {
+		System.out.println(s);
+	    }
+
+	    // to add a student
+
+//	    Student toAdd = new Student("Hulk", "hulk@brazil.com", "chemistry", 52);
+//	    dao.insertDetails(toAdd);
+
+	    // to delete a student enrty
+
+//	    dao.deleteHard(5);
+
+	    // to update the table
+
+//	    dao.updateCourse(3, "Physics");
+*/
+	} catch (Exception e) {
+	    e.printStackTrace();
+	}
+	
+    }
 
 }
