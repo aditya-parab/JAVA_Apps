@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	
 	try {
 		System.out.println("hi im in login1");
-		if (loginService.isValidUser(username, password)) {
+		if (loginService.isUserExists(username, password)) {
 		    
 		    	System.out.println("hi im in login2");
 		    	request.setAttribute("name",username);

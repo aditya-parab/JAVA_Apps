@@ -42,16 +42,18 @@ public class RegistrationServlet extends HttpServlet{
     	System.out.println("Registration I/P  username :" + username + " , " + password+" , "+course+", "+age);
     	
     	try {
-			if(loginService.isValidUser(username, password) && RegistrationService.isValidUser(username, password, course, age)) {
+			if(!loginService.isUserExists(username, password) && !RegistrationService.isUserExists(username, password, course, age)) {
+				
 				request.setAttribute("flag", true);
-				sdao.insertRecord( name, username,  password,  email,  course, age);
+				
 				Login loginObj=new Login();
 				loginObj.setActive(true);
 				loginObj.setUname(username);
 				loginObj.setPswd(password);
 				Date currentDate = new Date(System.currentTimeMillis());
 				loginObj.setLastModified(currentDate);
-				dao.insertDetails(loginObj);
+				sdao.insertRecord( name, username,  password,  email,  course, age); //insert into student table
+				dao.insertDetails(loginObj); //insert into login table
 				request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 				
 			}

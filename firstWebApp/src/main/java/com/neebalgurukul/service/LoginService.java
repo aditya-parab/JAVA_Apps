@@ -6,7 +6,7 @@ import com.neebalgurukul.dao.LoginDao;
 import com.neebalgurukul.model.Login;
 
 public class LoginService {
-    public boolean isValidUser(String username, String password) throws Exception {
+    public boolean isUserExists(String username, String password) throws Exception {
 //	boolean flag = true;
 	Login login = new Login();
 	LoginDao dao = new LoginDao();
