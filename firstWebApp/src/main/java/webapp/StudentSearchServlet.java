@@ -15,7 +15,7 @@ public class StudentSearchServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
 	    {
 
-	System.out.println("Inside StudentServlet....");
+	System.out.println("Inside StudentSearchServlet....");
 	request.getRequestDispatcher("/WEB-INF/views/studentsearch.jsp").forward(request, response);
     }
 

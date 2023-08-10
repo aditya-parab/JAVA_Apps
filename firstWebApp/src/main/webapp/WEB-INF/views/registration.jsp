@@ -16,8 +16,12 @@
             Email: <input name="email" type="email" /><br>
             Course: <input name="course" type="text" /><br>
             Age: <input name="age" type="number" /><br>
-            <button type="submit">Register</button><br>
-            <button type="login">login</button>
+            <input type="submit" value="Register"></input>
+            
+        </form>
+        
+        <form action="/login.do" method="GET">
+         <input type="submit" value="Login"></input>
         </form>
 
         <h1 id="registeredMessage" style="display: none;">Student is registered!</h1>
