@@ -12,7 +12,7 @@ import com.neebalgurukul.exceptions.UserAlreadyExistsException;
 import com.neebalgurukul.exceptions.UserNotFoundException;
 import com.neebalgurukul.model.Login;
 import com.neebalgurukul.model.Student;
-
+import com.neebalgurukul.model.Student;
 public class StudentDao {
 	
 	Connection conn =null;
@@ -65,7 +65,7 @@ public class StudentDao {
 		
 		try {
 			for(Student s: sDao.getStudentDetails()) {
-				if(s.getName().startsWith(str)) {
+				if(s.getName().contains(str)) {
 					res.add(s); //if student matches with the string, add to res list
 				}
 				
