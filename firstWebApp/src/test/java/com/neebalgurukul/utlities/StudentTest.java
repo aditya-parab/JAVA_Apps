@@ -1,4 +1,4 @@
-package firstWebApp;
+package com.neebalgurukul.utlities;
 
 import java.util.ArrayList;
 import java.util.List;
