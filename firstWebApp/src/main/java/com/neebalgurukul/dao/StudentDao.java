@@ -23,7 +23,7 @@ public class StudentDao {
 	
 	public List<Student> getStudentDetails() throws SQLException {
 		List<Student> studentsList = new ArrayList<Student>();
-		String query = "select id,name,email,course,age from students";
+		String query = "select id,name,username,password,email,course,age from students";
 		
 		Connection conn=ds.getConnection();
 		
@@ -37,6 +37,8 @@ public class StudentDao {
 					studObj.setName(rs.getString("name")); //gets ith record at column username in sql query output
 					studObj.setEmail(rs.getString("email"));
 					studObj.setCourse(rs.getString("course"));
+					studObj.setUsername(rs.getString("username"));
+					studObj.setPassword(rs.getString("password"));
 					studObj.setAge(Integer.parseInt(rs.getString("age")));
 					
 					
@@ -103,15 +105,15 @@ public class StudentDao {
 //	}
 	
 	
-	public Student getStudent(String email) throws Exception {
-		String query = "select id,name,email,course,age from students where email = ?";
+	public Student getStudent(String username) throws Exception {
+		String query = "select id,name,username,password,email,course,age from students where username = ?";
 		Student studObj = new Student();
 		
 		conn = ds.getConnection();
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setString(1,email);
+			pstmt.setString(1,username);
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs!=null) {
@@ -121,6 +123,8 @@ public class StudentDao {
 					studObj.setEmail(rs.getString("email"));
 					studObj.setCourse(rs.getString("course"));
 					studObj.setAge(Integer.parseInt(rs.getString("age")));
+					studObj.setUsername(rs.getString("username"));
+					studObj.setPassword(rs.getString("password"));
 					
 					
 				}
@@ -139,23 +143,63 @@ public class StudentDao {
 		
 	}
 	
-	public  boolean insertRecord(String name,String email, String course, int age) throws Exception {
+	
+//	public Student getStudentByUsername(String username) throws Exception {
+//		String query = "select id,name,email,course,age from students where username = ?";
+//		Student studObj = new Student();
+//		
+//		conn = ds.getConnection();
+//		
+//		try {
+//			PreparedStatement pstmt = conn.prepareStatement(query);
+//			pstmt.setString(1,username);
+//			ResultSet rs = pstmt.executeQuery();
+//			
+//			if(rs!=null) {
+//				while(rs.next()) { //goes i=0 to n for ur query
+//					studObj.setId(Integer.parseInt(rs.getString("id")));
+//					studObj.setName(rs.getString("name")); //gets ith record at column username in sql query output
+//					studObj.setEmail(rs.getString("email"));
+//					studObj.setCourse(rs.getString("course"));
+//					studObj.setAge(Integer.parseInt(rs.getString("age")));
+//					
+//					
+//				}
+//			}
+//			
+//			
+//			
+//		} catch (SQLException e) {
+//			throw new UserNotFoundException();
+//		}
+//		finally {
+//			conn.close();
+//		}
+//		
+//		return studObj;
+//		
+//	}
+	
+	public  boolean insertRecord(String name,String username, String password, String email, String course,int age) throws Exception {
 		
-		String query = "insert into students (name,email,course,age) values (?,?,?,?)";
+		String query = "insert into students (name,username,password,email,course,age) values (?,?,?,?,?,?)";
 		conn=ds.getConnection();
 		
 		try {
 			
 			StudentDao dao = new StudentDao();
-			Student check = dao.getStudent(email); 
+			Student check = dao.getStudent(username); 
 			if(check.getEmail()!=null)	// will check if student already exists
 				throw new UserAlreadyExistsException();
 			
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, name);
-			pstmt.setString(2, email);
-			pstmt.setString(3, course);
-			pstmt.setInt(4, age);
+			pstmt.setString(2, username);
+			pstmt.setString(3, password);
+			pstmt.setString(4, email);
+			pstmt.setString(5, course);
+			pstmt.setInt(6, age);
+			pstmt.executeUpdate();
 			
 			
 		} catch (UserAlreadyExistsException e) {
@@ -174,18 +218,18 @@ public class StudentDao {
 		return true;
 	}
 	
-	public  boolean deleteRecordHard(String email) throws Exception{
-		String query = "delete from students where id = ?";
+	public  boolean deleteRecordHard(String username) throws Exception{
+		String query = "delete from students where username = ?";
 		conn=ds.getConnection();
 		
 		try {
 			//check if username exists
 			StudentDao dao = new StudentDao();
-			Student check = dao.getStudent(email); 
+			Student check = dao.getStudent(username); 
 			
 			PreparedStatement pstmt = conn.prepareStatement(query);
 
-			pstmt.setInt(1, check.getId());
+			pstmt.setString(1, username);
 			pstmt.executeUpdate();
 		} 	
 		
@@ -198,22 +242,22 @@ public class StudentDao {
 		return true;
 	}
 	
-	public boolean updateCourse(String email, String newCourse) throws Exception {
+	public boolean updateCourse(String username, String newCourse) throws Exception {
 		conn = ds.getConnection();
 		
 		try {
 			//check if username exists
 			StudentDao dao = new StudentDao();
-			Student check = dao.getStudent(email); 
+			Student check = dao.getStudent(username); 
 			
 			
-			String query = "update students set course = ? where id = ?";
+			String query = "update students set course = ? where username = ?";
 			conn=ds.getConnection();
 			
 			PreparedStatement pstmt = conn.prepareStatement(query);
 
 			pstmt.setString(1, newCourse);
-			pstmt.setInt(2, check.getId());
+			pstmt.setString(2, username);
 			pstmt.executeUpdate();
 			
 		} 
@@ -233,11 +277,6 @@ public class StudentDao {
 	
 	
 	
-	
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

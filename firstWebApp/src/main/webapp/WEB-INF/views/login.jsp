@@ -5,11 +5,12 @@
     <title>Yahoo!!</title>
 </head>
 <body>
-    <p><font color="red">${errorMessage}</font></p>
-    <form action="/login.do" method="POST">
+    <h1 style="font-size: large;">Login Form</h1>
+    <form action="/studentsearch.do" method="GET">
         Name : <input name="username" type="text"/>
-        Password : <input name="password" type="password"/>
-        <input type="submit"/>
+        <br/>
+        Password : <input name="password" type="password"/><br>
+        <button type="submit">Login</button>
 
     </form>   
 </body>

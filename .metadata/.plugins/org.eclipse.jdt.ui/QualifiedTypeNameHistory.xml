@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
-    <fullyQualifiedTypeName name="com.day12.LinkedListDemo"/>
     <fullyQualifiedTypeName name="day15.LinkedListStack"/>
     <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
     <fullyQualifiedTypeName name="com.day12.Node"/>
@@ -40,24 +38,26 @@
     <fullyQualifiedTypeName name="com.neebalgurukal.exceptions.UserNotFoundException"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="com.neebalgurukul.model.Student"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="com.neebalgurukal.exceptions.UserAlreadyExistsException"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="com.neebalgurukul.dao.StudentDao"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="com.neebalgurukul.dao.LoginDao"/>
-    <fullyQualifiedTypeName name="com.neebalgurukul.model.Login"/>
     <fullyQualifiedTypeName name="com.neebalgurukul.exceptions.UserNotFoundException"/>
     <fullyQualifiedTypeName name="com.neebalgurukul.service.LoginService"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="com.neebalgurukul.model.Student"/>
+    <fullyQualifiedTypeName name="javax.imageio.spi.RegisterableService"/>
+    <fullyQualifiedTypeName name="com.neebalgurukul.service.RegistrationService"/>
+    <fullyQualifiedTypeName name="com.neebalgurukul.dao.StudentDao"/>
+    <fullyQualifiedTypeName name="com.neebalgurukul.dao.LoginDao"/>
+    <fullyQualifiedTypeName name="com.neebalgurukul.model.Login"/>
 </qualifiedTypeNameHistroy>

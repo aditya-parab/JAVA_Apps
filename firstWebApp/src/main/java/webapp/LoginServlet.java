@@ -23,29 +23,34 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException  {
 	LoginService loginService = new LoginService();
-	String name = request.getParameter("username");
+	String username = request.getParameter("username");
 	String password = request.getParameter("password");
-	System.out.println("I/P Parameter :" + name + " , " + password);
+	System.out.println("I/P Parameter :" + username + " , " + password);
 
 
 	
-	if (loginService.isValidUser(name, password)) {
-	    try {
-	    	request.setAttribute("name",name);
-	    	request.setAttribute("password", password);
-		request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
-	    } catch (Exception e) {
-	    	System.out.println(e);
-	    }
-	} else {
-	    request.setAttribute("errorMessage", "Invalid Credentials!");
-	    try {
-		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-	    } catch (ServletException e) {
+	try {
+		System.out.println("hi im in login1");
+		if (loginService.isValidUser(username, password)) {
+		    
+		    	System.out.println("hi im in login2");
+		    	request.setAttribute("name",username);
+		    	request.setAttribute("password", password);
+			request.getRequestDispatcher("/WEB-INF/views/studentsearch.jsp").forward(request, response);
+		    } 
+		 else {
+		    request.setAttribute("errorMessage", "Invalid Credentials!");
+		    
+			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+		    }
+	} catch (ServletException e) {
+		// TODO Auto-generated catch block
 		e.printStackTrace();
-	    } catch (IOException e) {
-		e.printStackTrace();
-	    }
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		System.out.println(e);	} 
 	}
     }
-}
+
+    
+
