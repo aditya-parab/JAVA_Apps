@@ -6,8 +6,8 @@
 </head>
 <body>
     <h1 style="font-size: large;">Login Form</h1>
-    <form action="/studentsearch.do" method="GET">
-        Name : <input name="username" type="text"/>
+    <form action="/login.do" method="POST">
+        Username : <input name="username" type="text"/>
         <br/>
         Password : <input name="password" type="password"/><br>
         <button type="submit">Login</button>

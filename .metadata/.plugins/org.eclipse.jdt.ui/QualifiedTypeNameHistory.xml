@@ -31,8 +31,6 @@
     <fullyQualifiedTypeName name="com.neebalgurukul.dao.UserNotFoundException"/>
     <fullyQualifiedTypeName name="java.nio.file.attribute.UserPrincipalNotFoundException"/>
     <fullyQualifiedTypeName name="com.neebalgurukal.exceptions.UserNotFoundException"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="com.neebalgurukal.exceptions.UserAlreadyExistsException"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
@@ -46,18 +44,20 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="com.neebalgurukul.exceptions.UserNotFoundException"/>
-    <fullyQualifiedTypeName name="com.neebalgurukul.model.Student"/>
     <fullyQualifiedTypeName name="javax.imageio.spi.RegisterableService"/>
     <fullyQualifiedTypeName name="com.neebalgurukul.service.RegistrationService"/>
-    <fullyQualifiedTypeName name="com.neebalgurukul.dao.StudentDao"/>
     <fullyQualifiedTypeName name="com.neebalgurukul.dao.LoginDao"/>
     <fullyQualifiedTypeName name="com.neebalgurukul.model.Login"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="com.neebalgurukul.utilities.AreaUtlities"/>
     <fullyQualifiedTypeName name="org.junit.Test"/>
     <fullyQualifiedTypeName name="com.neebalgurukul.service.LoginService"/>
     <fullyQualifiedTypeName name="java.lang.Throwable"/>
     <fullyQualifiedTypeName name="java.lang.reflect.UndeclaredThrowableException"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.lang.AssertionError"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="com.neebalgurukul.dao.StudentDao"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.neebalgurukul.model.Student"/>
 </qualifiedTypeNameHistroy>

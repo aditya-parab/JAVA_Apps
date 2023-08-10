@@ -30,13 +30,13 @@ public class LoginServlet extends HttpServlet {
 
 	
 	try {
-		System.out.println("hi im in login1");
+		
 		if (loginService.isUserExists(username, password)) {
 		    
 		    	System.out.println("hi im in login2");
-		    	request.setAttribute("name",username);
+		    	request.setAttribute("username",username);
 		    	request.setAttribute("password", password);
-			request.getRequestDispatcher("/WEB-INF/views/studentsearch.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
 		    } 
 		 else {
 		    request.setAttribute("errorMessage", "Invalid Credentials!");

@@ -58,6 +58,26 @@ public class StudentDao {
 	}
 	
 	
+	public List<Student> getStudentSearchResults(String str) {
+		List<Student> studList  = new ArrayList<Student>();
+		StudentDao sDao = new StudentDao();
+		List<Student> res  = new ArrayList<Student>();
+		
+		try {
+			for(Student s: sDao.getStudentDetails()) {
+				if(s.getName().startsWith(str)) {
+					res.add(s); //if student matches with the string, add to res list
+				}
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+		}
+		return res;
+	}
+	
+	
 //	
 //	public Student getStudent(int id) throws Exception {
 //		String query = "select id,name,email,course,age from students where id = ?";
